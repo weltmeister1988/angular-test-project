@@ -1,0 +1,20 @@
+<section class="item-list">
+  <header class="item-list__header">
+    <h2>Item List</h2>
+    <p>Total items: {{ itemCount() }}</p>
+    <button (click)="loadItems()">Reload</button>
+  </header>
+
+  @if (items().length > 0) {
+    <ul class="item-list__content">
+      @for (item of items(); track item.id) {
+        <li class="item-list__item">
+          <h4>{{ item.title }}</h4>
+          <p>{{ item.body }}</p>
+        </li>
+      }
+    </ul>
+  } @else {
+    <p class="item-list__empty">No items to display.</p>
+  }
+</section>
